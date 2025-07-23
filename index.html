@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Interactive Projects</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #ece9e6, #ffffff);
+      text-align: center;
+      padding: 2rem;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 2rem;
+    }
+
+    .project-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .card {
+      background: #f0f0f0;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      width: 200px;
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      cursor: pointer;
+    }
+
+    .card a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>My Interactive Projects</h1>
+  <div class="project-list">
+    <div class="card">
+      <a href="magic-8ball/index.html" target="_blank">🎱 Magic 8-Ball</a>
+    </div>
+    <div class="card">
+      <a href="calculator/index.html" target="_blank">🧮 Calculator</a>
+    </div>
+    <div class="card">
+      <a href="todo-app/index.html" target="_blank">📝 To-Do List</a>
+    </div>
+  </div>
+</body>
+</html>
