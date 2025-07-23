@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Magic 8-Ball</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #1f1c2c, #928dab);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      color: #fff;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+    }
+
+    .magic-ball {
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle at center, #000 60%, #333);
+      border-radius: 50%;
+      position: relative;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .triangle {
+      width: 0;
+      height: 0;
+      border-left: 100px solid transparent;
+      border-right: 100px solid transparent;
+      border-bottom: 173.2px solid #1f3c88;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .answer {
+      position: absolute;
+      top: 45%;
+      width: 180px;
+      text-align: center;
+      color: #fff;
+      font-weight: bold;
+      font-size: 1.1rem;
+      z-index: 2;
+    }
+
+    button {
+      margin-top: 2rem;
+      padding: 0.8rem 1.5rem;
+      font-size: 1.1rem;
+      background: #6a11cb;
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+      border: none;
+      border-radius: 8px;
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    .fade-in {
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Magic 8-Ball</h1>
+  <div class="magic-ball">
+    <div class="triangle"></div>
+    <div class="answer" id="answer">Ask a question</div>
+  </div>
+  <button onclick="shakeBall()">Ask the 8-Ball</button>
+
+  <script>
+    const answers = [
+      "Yes", "No", "Maybe", "Ask again", "Definitely",
+      "Absolutely not", "It is certain", "Don't count on it",
+      "Outlook good", "Very doubtful", "Without a doubt", 
+      "Signs point to yes", "Cannot predict now", "Better not tell you now"
+    ];
+
+    function shakeBall() {
+      const answerEl = document.getElementById('answer');
+      const randomIndex = Math.floor(Math.random() * answers.length);
+      answerEl.classList.remove("fade-in"); // Restart animation
+      void answerEl.offsetWidth;
+      answerEl.textContent = answers[randomIndex];
+      answerEl.classList.add("fade-in");
+    }
+  </script>
+
+</body>
+</html>
